@@ -16,6 +16,7 @@ Exemple d'utilisation
 
   - Requête http GET sur `http://atom.fspot.org/ideep/42`
   - Réponse (format JSON) =
+
 ```javascript
 {
 	"found": true, 
