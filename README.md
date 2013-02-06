@@ -11,7 +11,9 @@ Pour rajouter des associations possibles il suffit de modifier les deux dictionn
 
 Ce service tourne à l'adresse http://atom.fspot.org/ideep/.
 
-Exemple d'utilisation :
+Exemple d'utilisation
+---------------------
+
   - Requête http GET sur `http://atom.fspot.org/ideep/42`
   - Réponse (format JSON) =
 ```javascript
@@ -36,20 +38,35 @@ C'est pourquoi dans le dictionnaire d'association `id => eep`, l'id est égaleme
 
 Si l'ID est inconnu, la réponse sera toujours `{"found": false}`
 
-Pour faire tourner le service chez vous :
+Mise en place
+-------------
+
+*Requiert python2.7, virtualenv et pip :*
+```bash
+# ubuntu :
+$ sudo apt-get install python-pip
+$ sudo pip install virtualenv
+```
+
+Pour installer le nécessaire :
 ```bash
 $ git clone https://github.com/fspot/ideep.git
 $ cd ideep
-$ virtualenv venv
-$ source venv/bin/activate
-$ pip install flask gunicorn
-$ cd app
-$ gunicorn ideep:app
+$ ./setupvenv.sh
 ```
+Puis, pour lancer le service :
+```bash
+$ cd ideep
+$ source venv/bin/activate
+$ cd app
+$ gunicorn ideep:app -b :8000
+```
+=> ça fait tourner le service sur le port 8000. Vous pouvez tester à `http://localhost:8000/ideep/`
 
-Cela le fera tourner sur le port 8000. Vous pouvez tester à `http://localhost:8000/ideep/`
+Conf nginx
+----------
 
-Conf nginx, chez moi j'ai simplement rajouté :
+Chez moi j'ai simplement rajouté une section :
 ```bash
 location /ideep/ {
     proxy_pass http://127.0.0.1:8000;
