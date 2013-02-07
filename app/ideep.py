@@ -57,6 +57,7 @@ eep_to_info = {
 id_to_eep = {
     '42': '05-02-01',  # <== keys must be strings !
     'test': '05-02-01',
+    '2214961': '05-02-01',  # <== 0x21CC31, interrupteur blanc n°4
 }
 
 
