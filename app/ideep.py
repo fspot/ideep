@@ -58,6 +58,8 @@ id_to_eep = {
     '42': '05-02-01',  # <== keys must be strings !
     'test': '05-02-01',
     '2214961': '05-02-01',  # <== 0x21CC31, interrupteur blanc n°4
+    '346751': '07-08-02',  # <== 0x00054A7F, capteur multifonction  n°6
+    '111198': '06-00-01',  # <== 0x001B25E, Contacteur de porte/fenêtre  n°6
 }
 
 
